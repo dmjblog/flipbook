@@ -1,29 +1,206 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Movie Cards</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #add8e6, #ffd700);
+            margin: 0;
+            padding: 0;
+        }
 
-<script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
-  
-<link rel="stylesheet" type="text/css" href="css/flipbook.style.css">
+        .header {
+            background: #000;
+            color: #ffd700; /* Golden text */
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+        }
 
-<script src="js/flipbook.min.js"></script>
+        .movie-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
+        .movie-card {
+            width: 300px;
+            margin: 20px;
+            background-color: #000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+            position: relative;
+            z-index: 0;
+        }
+
+        .movie-card:hover {
+            transform: scale(1.05);
+        }
+
+        .movie-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .movie-details {
+            padding: 1em;
+            color: #fff;
+            position: relative;
+            z-index: 1;
+        }
+
+        .movie-details h2 {
+            margin-top: 0;
+            color: gold; /* Golden text for movie titles */
+        }
+
+        .rating-stars,
+        .tags,
+        .movie-description {
+            margin-top: 10px;
+        }
+
+        .rating-stars {
+            color: #ffd700;
+            display: flex;
+            align-items: center;
+        }
+
+        .star {
+            margin-right: 5px;
+        }
+
+        .tags {
+            color: #ffd700;
+            text-align: center;
+        }
+
+        .tags span {
+            background-color: gold;
+            color: black;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin: 0 3px;
+        }
+
+        .tags::before {
+            content: "Tags: ";
+            font-weight: bold;
+        }
+
+        .movie-description {
+            text-align: justify;
+        }
+
+        .cta-button {
+            display: block;
+            width: 50%;
+            margin: 20px auto;
+            padding: 15px;
+            background-color: gold;
+            color: #000;
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Golden Movie Cards</h1>
+        <h2 style="color: white;">Discover your favorite movies</h2>
+    </div>
+
+    <div class="movie-container">
+        <div class="movie-card">
+            <img class="movie-image" src="movie1.jpg" alt="Movie 1">
 <script type="text/javascript">
-  jQuery(document).ready(function () {
-    jQuery("#container").flipBook({
-      pdfUrl: 'Miss-Rita-EP-01-The-Interview(2).pdf'
-    });
-  })
+	atOptions = {
+		'key' : 'bcb464e33ee6f184a45ea6c95dd16f71',
+		'format' : 'iframe',
+		'height' : 50,
+		'width' : 320,
+		'params' : {}
+	};
+	document.write('<scr' + 'ipt type="text/javascript" src="//www.topcreativeformat.com/bcb464e33ee6f184a45ea6c95dd16f71/invoke.js"></scr' + 'ipt>');
+</script>
+            <div class="movie-details">
+                <h2>Movie Title 1</h2>
+                <p>Release Year: 2022</p>
+                <p>Genre: Action</p>
+                <div class="rating-stars">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <div class="tags">
+                    <span>Tag1</span>
+                    <span>Tag2</span>
+                    <span>Tag3</span>
+                </div>
+                <div class="movie-description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at urna ac ligula consectetur consequat. Nullam dapibus, felis at tincidunt pulvinar, eros augue volutpat nunc.</p>
+                    <p>Phasellus sit amet justo ac justo varius posuere nec at leo. Sed bibendum velit ut mi malesuada, ac consectetur turpis interdum.</p>
+                    <p>Curabitur a eros in libero lobortis posuere. Proin hendrerit malesuada nisl eu malesuada. Sed ultricies tristique enim vel suscipit.</p>
+                    <!-- Add more paragraphs as needed -->
+                </div>
+
+                <!-- Call-to-Action Button -->
+                <a href="#" class="cta-button">FULL STORY</a>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+	atOptions = {
+		'key' : 'bcb464e33ee6f184a45ea6c95dd16f71',
+		'format' : 'iframe',
+		'height' : 50,
+		'width' : 320,
+		'params' : {}
+	};
+	document.write('<scr' + 'ipt type="text/javascript" src="//www.topcreativeformat.com/bcb464e33ee6f184a45ea6c95dd16f71/invoke.js"></scr' + 'ipt>');
+</script>
+<script type="text/javascript">
+	atOptions = {
+		'key' : 'bcb464e33ee6f184a45ea6c95dd16f71',
+		'format' : 'iframe',
+		'height' : 50,
+		'width' : 320,
+		'params' : {}
+	};
+	document.write('<scr' + 'ipt type="text/javascript" src="//www.topcreativeformat.com/bcb464e33ee6f184a45ea6c95dd16f71/invoke.js"></scr' + 'ipt>');
+</script>
+<script type="text/javascript">
+	atOptions = {
+		'key' : 'bcb464e33ee6f184a45ea6c95dd16f71',
+		'format' : 'iframe',
+		'height' : 50,
+		'width' : 320,
+		'params' : {}
+	};
+	document.write('<scr' + 'ipt type="text/javascript" src="//www.topcreativeformat.com/bcb464e33ee6f184a45ea6c95dd16f71/invoke.js"></scr' + 'ipt>');
+</script>
+<script type="text/javascript">
+	atOptions = {
+		'key' : 'bcb464e33ee6f184a45ea6c95dd16f71',
+		'format' : 'iframe',
+		'height' : 50,
+		'width' : 320,
+		'params' : {}
+	};
+	document.write('<scr' + 'ipt type="text/javascript" src="//www.topcreativeformat.com/bcb464e33ee6f184a45ea6c95dd16f71/invoke.js"></scr' + 'ipt>');
 </script>
 
-</head>
-
-<body>
-  <div id="container"/>
 </body>
-
-</html> 
+</html>
