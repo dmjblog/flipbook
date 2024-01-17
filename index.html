@@ -3,15 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your eBook Title</title>
+    <title>Your FlowPaper Flipbook</title>
+
+    <!-- Include FlowPaper JavaScript and CSS from CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://flowpaper.com/js/flowpaper.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://flowpaper.com/css/flowpaper.css" />
+
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #flowpaper {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
 </head>
 <body>
 
-    <h1>Your eBook Title</h1>
+    <h1>Your FlowPaper Flipbook</h1>
 
-    <p>Here is your embedded eBook:</p>
+    <!-- Replace 'your-pdf-url' with the actual path or URL of your PDF file -->
+    <div id="flowpaper"></div>
 
-    <iframe src="Miss-Rita-EP-01-The-Interview(2).pdf" width="100%" height="600px"></iframe>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            $('#flowpaper').FlowPaperViewer({
+                config: {
+                    PDFFile: 'your-pdf-url' // Replace with your actual PDF URL
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
+
+
