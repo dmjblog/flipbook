@@ -1,75 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your PDF Flipbook with Ads</title>
 
-    <!-- Include PDF.js from CDN -->
-    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  
+<link rel="stylesheet" type="text/css" href="css/flipbook.style.css">
 
-    <!-- Replace 'your-pdf.pdf' with the actual path to your PDF file -->
-    <script>
-        // Replace 'your-ad-script.js' with the actual path to your ad script
-        const adScript = 'your-ad-script.js';
+<script src="js/flipbook.min.js"></script>
 
-        document.addEventListener('DOMContentLoaded', function () {
-            // Fetch the PDF file
-            fetch('Miss-Rita-EP-01-The-Interview(2).pdf')
-                .then(response => response.arrayBuffer())
-                .then(data => {
-                    // Initialize PDF.js
-                    pdfjsLib.getDocument(data)
-                        .then(pdf => {
-                            const totalPages = pdf.numPages;
+<script type="text/javascript">
+  jQuery(document).ready(function () {
+    jQuery("#container").flipBook({
+      pdfUrl: 'pdf/1.pdf'
+    });
+  })
+</script>
 
-                            // Create a container for each page
-                            for (let pageNumber = 1; pageNumber <= totalPages; pageNumber++) {
-                                pdf.getPage(pageNumber).then(page => {
-                                    const scale = 1.5;
-                                    const viewport = page.getViewport({ scale });
-
-                                    // Create canvas element for each page
-                                    const canvas = document.createElement('canvas');
-                                    const context = canvas.getContext('2d');
-
-                                    canvas.height = viewport.height;
-                                    canvas.width = viewport.width;
-
-                                    // Append canvas to the container
-                                    document.body.appendChild(canvas);
-
-                                    // Render the page on canvas
-                                    page.render({ canvasContext: context, viewport });
-
-                                    // Load and execute ad script for each page
-                                    const script = document.createElement('script');
-                                    script.src = adScript;
-                                    document.body.appendChild(script);
-                                });
-                            }
-                        })
-                        .catch(error => console.error('Error loading PDF:', error));
-                })
-                .catch(error => console.error('Error fetching PDF:', error));
-        });
-    </script>
-
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-        }
-
-        canvas {
-            display: block;
-            margin: auto;
-        }
-    </style>
 </head>
+
 <body>
-
-    <h1>Your PDF Flipbook with Ads</h1>
-
+  <div id="container"/>
 </body>
-</html>
+
+</html> 
