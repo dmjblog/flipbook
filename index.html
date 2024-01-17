@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your PDF Flipbook</title>
 
-    <!-- Include PDF.js library -->
+    <!-- Include PDF.js from CDN -->
     <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
 
     <style>
         body {
             margin: 0;
             overflow: hidden;
+        }
+
+        #pdfContainer {
+            width: 100vw;
+            height: 100vh;
         }
 
         canvas {
@@ -23,47 +28,47 @@
 
     <h1>Your PDF Flipbook</h1>
 
-    <!-- Replace 'your-pdf-url' with the actual path or URL of your PDF file -->
-    <canvas id="pdf-viewer"></canvas>
+    <!-- Replace 'your-pdf.pdf' with the actual path to your PDF file -->
+    <div id="pdfContainer"></div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Replace 'your-pdf-url' with the actual path or URL of your PDF file
-            const pdfUrl = 'blob:https://github.com/a36ffcbc-fffc-4907-9626-2ae027c65013';
+            // Replace 'your-pdf.pdf' with the actual path to your PDF file
+            const pdfPath = 'your-pdf.pdf';
 
-            // Fetch the PDF
-            fetch(pdfUrl)
+            // Fetch the PDF file
+            fetch(pdfPath)
                 .then(response => response.arrayBuffer())
                 .then(data => {
-                    // Load the PDF using PDF.js
-                    pdfjsLib.getDocument(data).promise.then(pdf => {
-                        const totalPages = pdf.numPages;
-                        const container = document.getElementById('pdf-viewer');
+                    // Initialize PDF.js
+                    pdfjsLib.getDocument(data)
+                        .then(pdf => {
+                            const totalPages = pdf.numPages;
 
-                        // Render each page
-                        for (let pageNumber = 1; pageNumber <= totalPages; pageNumber++) {
-                            pdf.getPage(pageNumber).then(page => {
-                                const scale = 1.5;
-                                const viewport = page.getViewport({ scale });
+                            // Create a container for each page
+                            for (let pageNumber = 1; pageNumber <= totalPages; pageNumber++) {
+                                pdf.getPage(pageNumber).then(page => {
+                                    const scale = 1.5;
+                                    const viewport = page.getViewport({ scale });
 
-                                const canvas = document.createElement('canvas');
-                                canvas.height = viewport.height;
-                                canvas.width = viewport.width;
+                                    // Create canvas element for each page
+                                    const canvas = document.createElement('canvas');
+                                    const context = canvas.getContext('2d');
 
-                                const context = canvas.getContext('2d');
-                                const renderContext = {
-                                    canvasContext: context,
-                                    viewport: viewport
-                                };
+                                    canvas.height = viewport.height;
+                                    canvas.width = viewport.width;
 
-                                page.render(renderContext).promise.then(() => {
-                                    container.appendChild(canvas);
+                                    // Append canvas to the container
+                                    document.getElementById('pdfContainer').appendChild(canvas);
+
+                                    // Render the page on canvas
+                                    page.render({ canvasContext: context, viewport });
                                 });
-                            });
-                        }
-                    });
+                            }
+                        })
+                        .catch(error => console.error('Error loading PDF:', error));
                 })
-                .catch(error => console.error(error));
+                .catch(error => console.error('Error fetching PDF:', error));
         });
     </script>
 
