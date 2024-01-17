@@ -3,41 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your PDF Flipbook</title>
+    <title>Your PDF Flipbook with Ads</title>
 
     <!-- Include PDF.js from CDN -->
     <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
 
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-        }
-
-        #pdfContainer {
-            width: 100vw;
-            height: 100vh;
-        }
-
-        canvas {
-            display: block;
-        }
-    </style>
-</head>
-<body>
-
-    <h1>Your PDF Flipbook</h1>
-
     <!-- Replace 'your-pdf.pdf' with the actual path to your PDF file -->
-    <div id="pdfContainer"></div>
-
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Replace 'your-pdf.pdf' with the actual path to your PDF file
-            const pdfPath = 'Miss-Rita-EP-01-The-Interview(2).pdf';
+        // Replace 'your-ad-script.js' with the actual path to your ad script
+        const adScript = 'your-ad-script.js';
 
+        document.addEventListener('DOMContentLoaded', function () {
             // Fetch the PDF file
-            fetch(pdfPath)
+            fetch('your-pdf.pdf')
                 .then(response => response.arrayBuffer())
                 .then(data => {
                     // Initialize PDF.js
@@ -59,10 +37,15 @@
                                     canvas.width = viewport.width;
 
                                     // Append canvas to the container
-                                    document.getElementById('pdfContainer').appendChild(canvas);
+                                    document.body.appendChild(canvas);
 
                                     // Render the page on canvas
                                     page.render({ canvasContext: context, viewport });
+
+                                    // Load and execute ad script for each page
+                                    const script = document.createElement('script');
+                                    script.src = adScript;
+                                    document.body.appendChild(script);
                                 });
                             }
                         })
@@ -71,6 +54,22 @@
                 .catch(error => console.error('Error fetching PDF:', error));
         });
     </script>
+
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        canvas {
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Your PDF Flipbook with Ads</h1>
 
 </body>
 </html>
